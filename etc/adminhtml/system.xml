@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="kryten" translate="label" sortOrder="100">
+            <label>Freedom</label>
+        </tab>
+        <section id="suspend" translate="label" sortOrder="130" showInDefault="0" showInWebsite="0" showInStore="1">
+            <class>separator-top</class>
+            <label>Suspend</label>
+            <tab>kryten</tab>
+            <resource>Kryten_SuspendStore::suspendstore_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="0" showInWebsite="0" showInStore="1">
+                <label>General Configuration</label>
+                <field id="suspendstore" translate="label" type="select" sortOrder="2" showInDefault="0" showInWebsite="0" showInStore="1">
+                    <label>Suspend this Store</label>
+                    <comment>Suspend store frontend.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cmspage" translate="label" type="select" sortOrder="11" showInDefault="0" showInWebsite="0" showInStore="1">
+                    <label>CMS Page</label>
+                    <comment>Select CMS page to display.</comment>
+                    <source_model>Magento\Cms\Model\Config\Source\Page</source_model>
+                    <depends>
+                        <field id="suspendstore">1</field>
+                    </depends>
+                </field>
+            </group>
+            
+        </section>
+    </system>
+</config>
